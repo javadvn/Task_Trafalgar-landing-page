@@ -26,12 +26,15 @@ header{
   .logo{
   width: 160px;
   height: 41px;
+  margin-right: 230px;
+  min-width: 120px;
   }
 }
 
 .nav-bar{
-  min-width: 700px;
   @include flexCenter();
+  min-width: 700px;
+  position: relative;
   a{
     margin-left: 60px;
     color: grey;
@@ -41,17 +44,20 @@ header{
   }
 }
 
-.nav-bar-items:hover{
-  color: black;
-  font-weight: 700;
+.menu-icon{
+  display: none;
 }
 
-.header-body{
+.nav-bar-items:hover{
+  color: black;
+}
+
+.part-introduction{
   @include flexCenter();
   margin-top: 84px;
 }
 
-.header-body-text{
+.part-introduction-text{
     margin-right: 110px;
   h1{
     font-size: 48px;
@@ -83,9 +89,6 @@ header{
   opacity: 0.7;
 }
 
-.header-photo{
-  width: 100%;
-}
 
 .element-header{
   position: absolute;
@@ -194,7 +197,7 @@ leading healthcare providers part starts here*/
 
 .leading-hc-providers{
   @include flexCenter();
-  margin-top: 220px;
+  margin-top: 150px;
   img{
     width: 100%;
   }
@@ -485,14 +488,17 @@ footer{
 
 /* MEDIA QUERY MAX_WIDTH: 1200PX*/
 
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1200px) and (min-width: 768px){
   .container{
     padding: 30px 80px 0px;
   }
-  .nav-bar{
+  .nav-bar-items{
     display: none;
   }
-  .header-body{
+  .menu-icon{
+    display: block;
+  }
+  .part-introduction{
     @include flexCenter();
     flex-direction: column;
     margin-top: 84px;
@@ -549,4 +555,81 @@ footer{
     padding: 20px 30px;
 }
 
+}
+
+/* MEDIA QUERY MAX_WIDTH: 768PX*/
+
+@media screen and (max-width: 768px){
+  .container{
+    padding: 10px 10px 0px;
+  }
+  .nav-bar-items{
+    display: none;
+  }
+  .menu-icon{
+    display: block;
+  }
+  .part-introduction{
+    @include flexCenter();
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .introduction-heading{
+    font-size: 50px;
+  }
+  .ctn-services{
+    display: grid;
+    grid-template: 1fr 1fr 1fr /1fr;
+  }
+  .leading-hc-providers{
+    @include flexCenter();
+    flex-direction: column;
+  }
+  .leading-hc-providers-text{
+    margin-left: 0;
+  }
+
+  .download-apps{
+    @include flexCenter();
+    flex-direction: column;
+  }
+  .customer-feedback-part{
+    text-align: center;
+  }
+  .customer-info{
+    @include flexCenter();
+    flex-direction: column;
+    justify-content: center
+  }
+  .customer-name-position{
+    @include flexCenter();
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  .customer-feedback-text{
+    text-align: center;
+  }
+  .part-articles{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .article-list{
+    display: grid;
+    grid-template: 1fr/1fr;
+    margin-top: 20px;
+  }
+  .article{
+    margin-top: 20px;
+  }
+
+  .container-footer{
+    display: grid;
+    grid-template: 1fr /1fr;
+    padding: 10px 10px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
 }

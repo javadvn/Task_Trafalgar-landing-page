@@ -102,13 +102,16 @@ header {
 .header-top .logo {
   width: 160px;
   height: 41px;
+  margin-right: 230px;
+  min-width: 120px;
 }
 
 .nav-bar {
-  min-width: 700px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-width: 700px;
+  position: relative;
 }
 .nav-bar a {
   margin-left: 60px;
@@ -117,34 +120,37 @@ header {
   font-weight: 400;
 }
 
-.nav-bar-items:hover {
-  color: black;
-  font-weight: 700;
+.menu-icon {
+  display: none;
 }
 
-.header-body {
+.nav-bar-items:hover {
+  color: black;
+}
+
+.part-introduction {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 84px;
 }
 
-.header-body-text {
+.part-introduction-text {
   margin-right: 110px;
 }
-.header-body-text h1 {
+.part-introduction-text h1 {
   font-size: 48px;
   font-weight: 700;
   line-height: 56px;
 }
-.header-body-text p {
+.part-introduction-text p {
   font-size: 21px;
   font-weight: 300;
   line-height: 32px;
   margin-top: 20px;
   margin-bottom: 45px;
 }
-.header-body-text button {
+.part-introduction-text button {
   width: 200px;
   height: 60px;
   border-radius: 55px;
@@ -159,10 +165,6 @@ header {
 
 .btn-consult:hover {
   opacity: 0.7;
-}
-
-.header-photo {
-  width: 100%;
 }
 
 .element-header {
@@ -260,7 +262,7 @@ leading healthcare providers part starts here*/
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 220px;
+  margin-top: 150px;
 }
 .leading-hc-providers img {
   width: 100%;
@@ -517,14 +519,17 @@ footer {
 }
 
 /* MEDIA QUERY MAX_WIDTH: 1200PX*/
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1200px) and (min-width: 768px) {
   .container {
     padding: 30px 80px 0px;
   }
-  .nav-bar {
+  .nav-bar-items {
     display: none;
   }
-  .header-body {
+  .menu-icon {
+    display: block;
+  }
+  .part-introduction {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -587,5 +592,88 @@ footer {
   }
   .container-footer {
     padding: 20px 30px;
+  }
+}
+/* MEDIA QUERY MAX_WIDTH: 768PX*/
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 10px 10px 0px;
+  }
+  .nav-bar-items {
+    display: none;
+  }
+  .menu-icon {
+    display: block;
+  }
+  .part-introduction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .introduction-heading {
+    font-size: 50px;
+  }
+  .ctn-services {
+    display: grid;
+    grid-template: 1fr 1fr 1fr/1fr;
+  }
+  .leading-hc-providers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+  .leading-hc-providers-text {
+    margin-left: 0;
+  }
+  .download-apps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+  .customer-feedback-part {
+    text-align: center;
+  }
+  .customer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .customer-name-position {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  .customer-feedback-text {
+    text-align: center;
+  }
+  .part-articles {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .article-list {
+    display: grid;
+    grid-template: 1fr/1fr;
+    margin-top: 20px;
+  }
+  .article {
+    margin-top: 20px;
+  }
+  .container-footer {
+    display: grid;
+    grid-template: 1fr/1fr;
+    padding: 10px 10px;
+    justify-content: space-between;
+    margin-top: 20px;
   }
 }/*# sourceMappingURL=index.css.map */
