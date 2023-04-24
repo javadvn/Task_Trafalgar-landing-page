@@ -13,6 +13,12 @@
   transition: opacity 0.15, color 0.15, backgroung-color 0.15;
 }
 
+.sample-button-hover, .btn-view-all:hover, .btn-download:hover, .btn-learn-more:hover {
+  color: white;
+  background-color: rgb(10, 147, 192);
+  opacity: 0.7;
+}
+
 .h2-text-sample, .part-articles h2, .customer-feedback-part h2, .download-apps-text h2, .leading-hc-providers-text h2, .our-services-text h2 {
   font-weight: 700;
   font-size: 36px;
@@ -33,10 +39,41 @@
   margin-top: 26px;
 }
 
-* {
-  padding: 0px;
-  margin: 0px;
-  text-decoration: none;
+/*** The new CSS Reset - version 1.2.0 (last updated 23.7.2021) ***/
+/* Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property */
+*:where(:not(iframe, canvas, img, svg, video):not(svg *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+  Remove list styles (bullets/numbers)
+  in case you use it with normalize.css
+*/
+ol, ul {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-width: 100%;
+}
+
+/* Removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* Revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
 }
 
 body {
@@ -65,13 +102,16 @@ header {
 .header-top .logo {
   width: 160px;
   height: 41px;
+  margin-right: 230px;
+  min-width: 120px;
 }
 
 .nav-bar {
-  min-width: 700px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-width: 700px;
+  position: relative;
 }
 .nav-bar a {
   margin-left: 60px;
@@ -80,34 +120,37 @@ header {
   font-weight: 400;
 }
 
-.nav-bar-items:hover {
-  color: black;
-  font-weight: 700;
+.menu-icon {
+  display: none;
 }
 
-.header-body {
+.nav-bar-items:hover {
+  color: black;
+}
+
+.part-introduction {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 84px;
 }
 
-.header-body-text {
+.part-introduction-text {
   margin-right: 110px;
 }
-.header-body-text h1 {
+.part-introduction-text h1 {
   font-size: 48px;
   font-weight: 700;
   line-height: 56px;
 }
-.header-body-text p {
+.part-introduction-text p {
   font-size: 21px;
   font-weight: 300;
   line-height: 32px;
   margin-top: 20px;
   margin-bottom: 45px;
 }
-.header-body-text button {
+.part-introduction-text button {
   width: 200px;
   height: 60px;
   border-radius: 55px;
@@ -122,10 +165,6 @@ header {
 
 .btn-consult:hover {
   opacity: 0.7;
-}
-
-.header-photo {
-  width: 100%;
 }
 
 .element-header {
@@ -144,12 +183,6 @@ our services part starts here*/
   text-align: center;
   margin-top: 70px;
 }
-.btn-learn-more:hover {
-  opacity: 0.7;
-  background-color: rgb(10, 147, 192);
-  color: white;
-}
-
 .our-services-text {
   display: flex;
   justify-content: space-between;
@@ -160,10 +193,8 @@ our services part starts here*/
 }
 .ctn-services {
   display: grid;
-  grid-template: 350px 350px/auto auto auto;
-  -moz-column-gap: 36px;
-       column-gap: 36px;
-  row-gap: 36px;
+  grid-template: 1fr 1fr/1fr 1fr 1fr;
+  grid-gap: 36px;
   margin-top: 80px;
   margin-bottom: 70px;
   position: relative;
@@ -181,6 +212,7 @@ our services part starts here*/
   border-radius: 20px;
   box-shadow: 5px 5px 5px 3px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
+  cursor: pointer;
 }
 .services a {
   font-weight: 700;
@@ -230,7 +262,7 @@ leading healthcare providers part starts here*/
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 220px;
+  margin-top: 150px;
 }
 .leading-hc-providers img {
   width: 100%;
@@ -268,12 +300,6 @@ download apps part starts here*/
 }
 .download-apps-text button {
   margin-top: 35px;
-}
-
-.btn-download:hover {
-  color: white;
-  background-color: rgb(10, 147, 192);
-  opacity: 0.7;
 }
 
 /*download apps part ends here 
@@ -341,6 +367,9 @@ customer-feedback part starts here*/
   justify-content: center;
   margin-top: 45px;
 }
+.nav-arrow img {
+  width: auto;
+}
 
 .element-cf-right {
   position: absolute;
@@ -370,16 +399,9 @@ articles part starts here*/
   margin-top: 70px;
 }
 
-.btn-view-all:hover {
-  color: white;
-  background-color: rgb(10, 147, 192);
-  opacity: 0.7;
-}
-
 .article-list {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template: 1fr/1fr 1fr 1fr;
   -moz-column-gap: 35px;
        column-gap: 35px;
   margin-top: 80px;
@@ -391,7 +413,6 @@ articles part starts here*/
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  height: 500px;
   border-radius: 20px;
   background-color: white;
 }
@@ -495,4 +516,169 @@ footer {
   position: absolute;
   left: -20px;
   bottom: 0px;
+}
+
+/* MEDIA QUERY MAX_WIDTH: 1200PX*/
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+  .container {
+    padding: 30px 80px 0px;
+  }
+  .nav-bar-items {
+    display: none;
+  }
+  .menu-icon {
+    display: block;
+  }
+  .part-introduction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 84px;
+  }
+  .ctn-services {
+    display: grid;
+    grid-template: 1fr 1fr 1fr/1fr 1fr;
+  }
+  .leading-hc-providers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+  .leading-hc-providers-text {
+    margin-left: 0;
+  }
+  .download-apps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+  .customer-feedback-part {
+    text-align: center;
+  }
+  .customer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .customer-name-position {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+  .customer-feedback-text {
+    text-align: center;
+  }
+  .part-articles {
+    margin-top: 100px;
+    margin-bottom: 85px;
+    text-align: center;
+  }
+  .article-list {
+    display: grid;
+    grid-template: 1fr/1fr;
+    margin-top: 40px;
+  }
+  .article {
+    margin-top: 40px;
+  }
+  .container-footer {
+    padding: 20px 30px;
+  }
+}
+/* MEDIA QUERY MAX_WIDTH: 768PX*/
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 10px 10px 0px;
+  }
+  .nav-bar-items {
+    display: none;
+  }
+  .menu-icon {
+    display: block;
+    position: absolute;
+    inset: 0;
+  }
+  .part-introduction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .introduction-heading {
+    font-size: 50px;
+  }
+  .ctn-services {
+    display: grid;
+    grid-template: 1fr 1fr 1fr/1fr;
+  }
+  .leading-hc-providers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+  .leading-hc-providers-text {
+    margin-left: 0;
+  }
+  .download-apps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+  .customer-feedback-part {
+    text-align: center;
+  }
+  .customer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .customer-name-position {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  .customer-feedback-text {
+    text-align: center;
+  }
+  .part-articles {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .article-list {
+    display: grid;
+    grid-template: 1fr/1fr;
+    margin-top: 20px;
+  }
+  .article {
+    margin-top: 20px;
+  }
+  .container-footer {
+    display: grid;
+    grid-template: 1fr/1fr;
+    padding: 10px 10px;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  .footer-nav h3 {
+    color: rgba(0, 0, 0, 0.8);
+  }
 }/*# sourceMappingURL=index.css.map */
